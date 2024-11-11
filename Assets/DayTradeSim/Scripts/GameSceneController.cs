@@ -14,6 +14,8 @@ namespace DayTradeSim
         private bool isGameEnd;
 
         private TinyStateMachine stateMachine;
+
+        private string prompt;
         
         void Start()
         {
@@ -45,9 +47,18 @@ namespace DayTradeSim
                 UniTask.WaitWhile(() => !Keyboard.current.qKey.wasPressedThisFrame, cancellationToken: scope),
                 UniTask.WaitWhile(() => !Keyboard.current.enterKey.wasPressedThisFrame, cancellationToken: scope)
             );
-            var prompt = result == 0 ? debugCommand : "TODO";
-            Debug.Log($"prompt = {prompt}");
+            prompt = result == 0 ? debugCommand : "TODO";
             Debug.Log("[State] Prompt End");
+            stateMachine.Change(ProcessStateAsync);
+        }
+        
+        private UniTask ProcessStateAsync(CancellationToken scope)
+        {
+            Debug.Log("[State] Process Begin");
+            Debug.Log($"prompt = {prompt}");
+            Debug.Log("[State] Process End");
+            stateMachine.Change(PromptStateAsync);
+            return UniTask.CompletedTask;
         }
     }
 }
