@@ -52,15 +52,12 @@ namespace DayTradeSim
         
         private async UniTask LoginStateAsync(CancellationToken scope)
         {
-            Debug.Log("[State] Login Begin");
             await UniTask.WaitWhile(() => !Keyboard.current.anyKey.wasPressedThisFrame, cancellationToken: scope);
-            Debug.Log("[State] Login End");
             stateMachine.Change(PromptStateAsync);
         }
         
         private async UniTask PromptStateAsync(CancellationToken scope)
         {
-            Debug.Log("[State] Prompt Begin");
             if (queuePrompts.Count > 0)
             {
                 prompt = queuePrompts.Dequeue();
@@ -72,14 +69,11 @@ namespace DayTradeSim
                 prompt = promptTextField.value;
                 promptTextField.value = "";
             }
-            Debug.Log("[State] Prompt End");
             stateMachine.Change(ProcessStateAsync);
         }
         
         private async UniTask ProcessStateAsync(CancellationToken scope)
         {
-            Debug.Log("[State] Process Begin");
-            Debug.Log($"prompt = {prompt}");
             if (string.IsNullOrEmpty(prompt))
             {
                 stateMachine.Change(PromptStateAsync);
@@ -101,7 +95,6 @@ namespace DayTradeSim
             {
                 Debug.Log($"Command not found: {data[0]}");
             }
-            Debug.Log("[State] Process End");
             stateMachine.Change(PromptStateAsync);
         }
         
