@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3180166f6d2e34fd4a449ee6e022f4e0, type: 3}
+  m_Name: soc
+  m_EditorClassIdentifier: 
+  commandName: soc
+  sequences:
+  - rid: 895594281561227357
+  references:
+    version: 2
+    RefIds:
+    - rid: 895594281561227357
+      type: {class: SelectorFromCommandData, ns: DayTradeSim, asm: Assembly-CSharp}
+      data:
+        indexResolver:
+          rid: 895594281561227361
+        defaultSequences: {fileID: 11400000, guid: a9ddeedf12bc04b1a852ace6dc319c3d, type: 2}
+        elements:
+        - targetResolver:
+            rid: 895594281561227365
+          sequences: {fileID: 11400000, guid: 906d4e5c8c8474206bf8b06b243f2999, type: 2}
+    - rid: 895594281561227361
+      type: {class: IntResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: 1
+    - rid: 895594281561227365
+      type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: view

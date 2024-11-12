@@ -373,6 +373,7 @@ MonoBehaviour:
   commandDataList:
     list:
     - {fileID: 11400000, guid: 2fcfe3e514b884d9cad859bb2cb4e2e2, type: 2}
+    - {fileID: 11400000, guid: df93aa7f2b8904909a8710ce10c981a9, type: 2}
 --- !u!4 &694544460
 Transform:
   m_ObjectHideFlags: 0

@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3180166f6d2e34fd4a449ee6e022f4e0, type: 3}
-  m_Name: log
+  m_Script: {fileID: 11500000, guid: c43a09a9de426fd4abfc1245979d7dad, type: 3}
+  m_Name: soc.view
   m_EditorClassIdentifier: 
-  commandName: log
   sequences:
-  - rid: 895594259554763108
+  - rid: 895594281561227362
   references:
     version: 2
     RefIds:
-    - rid: 895594259554763108
+    - rid: 895594281561227362
       type: {class: Log, ns: UnitySequencerSystem.StandardSequences, asm: UnitySequencerSystem}
       data:
-        message: Hello world
+        message: "View\u30B3\u30DE\u30F3\u30C9"

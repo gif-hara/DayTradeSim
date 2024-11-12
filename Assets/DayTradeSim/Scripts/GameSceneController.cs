@@ -32,6 +32,8 @@ namespace DayTradeSim
         
         private readonly Queue<string> queuePrompts = new();
         
+        StockSimulator.Core stockSimulator = new();
+        
         void Start()
         {
             BeginGameAsync(destroyCancellationToken).Forget();
