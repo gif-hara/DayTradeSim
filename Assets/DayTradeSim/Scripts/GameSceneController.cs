@@ -3,17 +3,25 @@ using Cysharp.Threading.Tasks;
 using HK;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 namespace DayTradeSim
 {
     public class GameSceneController : MonoBehaviour
     {
         [SerializeField]
+        private UIDocument uiDocumentPrefab;
+        
+        [SerializeField]
         private string debugCommand;
 
         private bool isGameEnd;
 
         private TinyStateMachine stateMachine;
+        
+        private UIDocument uiDocument;
+        
+        private TextField promptTextField;
 
         private string prompt;
         
@@ -25,6 +33,8 @@ namespace DayTradeSim
         private async UniTask BeginGameAsync(CancellationToken scope)
         {
             stateMachine = new TinyStateMachine();
+            uiDocument = Instantiate(uiDocumentPrefab);
+            promptTextField = uiDocument.rootVisualElement.Q<TextField>("TextField");
             stateMachine.Change(PromptStateAsync);
             await UniTask.WaitWhile(() => !isGameEnd, cancellationToken: scope);
             stateMachine.Dispose();
@@ -42,12 +52,10 @@ namespace DayTradeSim
         private async UniTask PromptStateAsync(CancellationToken scope)
         {
             Debug.Log("[State] Prompt Begin");
-            var result = await UniTask.WhenAny
-            (
-                UniTask.WaitWhile(() => !Keyboard.current.qKey.wasPressedThisFrame, cancellationToken: scope),
-                UniTask.WaitWhile(() => !Keyboard.current.enterKey.wasPressedThisFrame, cancellationToken: scope)
-            );
-            prompt = result == 0 ? debugCommand : "TODO";
+            promptTextField.Focus();
+            await UniTask.WaitWhile(() => !Keyboard.current.enterKey.wasPressedThisFrame, cancellationToken: scope);
+            prompt = promptTextField.value;
+            promptTextField.value = "";
             Debug.Log("[State] Prompt End");
             stateMachine.Change(ProcessStateAsync);
         }
