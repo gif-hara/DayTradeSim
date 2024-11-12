@@ -112,12 +112,11 @@ namespace DayTradeSim
                     await UniTask.WaitWhile(() => !Keyboard.current.enterKey.wasPressedThisFrame, cancellationToken: scope);
                     queuePrompts.Enqueue(promptTextField.value);
                     promptTextField.value = "";
-                    await UniTask.NextFrame();
+                    await UniTask.NextFrame(cancellationToken: scope);
                 }
             }
             catch (OperationCanceledException)
             {
-                Debug.Log("End BeginQueuePromptAsync");
             }
         }
     }
