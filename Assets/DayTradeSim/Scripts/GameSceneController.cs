@@ -37,6 +37,7 @@ namespace DayTradeSim
         void Start()
         {
             BeginGameAsync(destroyCancellationToken).Forget();
+            Debug.Log("Game Start");
         }
         
         private async UniTask BeginGameAsync(CancellationToken scope)
