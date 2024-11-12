@@ -1,9 +1,12 @@
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using HK;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnitySequencerSystem;
 
 namespace DayTradeSim
 {
@@ -13,8 +16,8 @@ namespace DayTradeSim
         private UIDocument uiDocumentPrefab;
         
         [SerializeField]
-        private string debugCommand;
-
+        private CommandDataList.DictionaryList commandDataList;
+        
         private bool isGameEnd;
 
         private TinyStateMachine stateMachine;
@@ -60,13 +63,26 @@ namespace DayTradeSim
             stateMachine.Change(ProcessStateAsync);
         }
         
-        private UniTask ProcessStateAsync(CancellationToken scope)
+        private async UniTask ProcessStateAsync(CancellationToken scope)
         {
             Debug.Log("[State] Process Begin");
             Debug.Log($"prompt = {prompt}");
+            var data = Regex.Matches(prompt, "\\\"(.*?)\\\"|\\S+")
+                .Select(x => x.Groups[0].Value.Replace("\"", ""))
+                .ToList();
+            if (commandDataList.TryGetValue(data[0], out var command))
+            {
+                var container = new Container();
+                container.Register("Data", data);
+                var sequencer = new Sequencer(container, command.Sequences);
+                await sequencer.PlayAsync(scope);
+            }
+            else
+            {
+                Debug.Log($"Command not found: {data[0]}");
+            }
             Debug.Log("[State] Process End");
             stateMachine.Change(PromptStateAsync);
-            return UniTask.CompletedTask;
         }
     }
 }

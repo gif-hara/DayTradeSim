@@ -370,7 +370,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocumentPrefab: {fileID: 6686881155206890366, guid: 0c79b3143dfd44bbfbd51f36e7a04e5f, type: 3}
-  debugCommand: debugCommand
+  commandDataList:
+    list:
+    - {fileID: 11400000, guid: 2fcfe3e514b884d9cad859bb2cb4e2e2, type: 2}
 --- !u!4 &694544460
 Transform:
   m_ObjectHideFlags: 0
