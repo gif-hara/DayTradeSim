@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -28,6 +30,8 @@ namespace DayTradeSim
 
         private string prompt;
         
+        private Queue<string> queuePrompts = new();
+        
         void Start()
         {
             BeginGameAsync(destroyCancellationToken).Forget();
@@ -55,10 +59,17 @@ namespace DayTradeSim
         private async UniTask PromptStateAsync(CancellationToken scope)
         {
             Debug.Log("[State] Prompt Begin");
-            promptTextField.Focus();
-            await UniTask.WaitWhile(() => !Keyboard.current.enterKey.wasPressedThisFrame, cancellationToken: scope);
-            prompt = promptTextField.value;
-            promptTextField.value = "";
+            if (queuePrompts.Count > 0)
+            {
+                prompt = queuePrompts.Dequeue();
+            }
+            else
+            {
+                promptTextField.Focus();
+                await UniTask.WaitWhile(() => !Keyboard.current.enterKey.wasPressedThisFrame, cancellationToken: scope);
+                prompt = promptTextField.value;
+                promptTextField.value = "";
+            }
             Debug.Log("[State] Prompt End");
             stateMachine.Change(ProcessStateAsync);
         }
@@ -67,6 +78,12 @@ namespace DayTradeSim
         {
             Debug.Log("[State] Process Begin");
             Debug.Log($"prompt = {prompt}");
+            if (string.IsNullOrEmpty(prompt))
+            {
+                stateMachine.Change(PromptStateAsync);
+                return;
+            }
+            BeginQueuePromptAsync(scope).Forget();
             var data = Regex.Matches(prompt, "\\\"(.*?)\\\"|\\S+")
                 .Select(x => x.Groups[0].Value.Replace("\"", ""))
                 .ToList();
@@ -83,6 +100,25 @@ namespace DayTradeSim
             }
             Debug.Log("[State] Process End");
             stateMachine.Change(PromptStateAsync);
+        }
+        
+        private async UniTask BeginQueuePromptAsync(CancellationToken scope)
+        {
+            try
+            {
+                while (true)
+                {
+                    promptTextField.Focus();
+                    await UniTask.WaitWhile(() => !Keyboard.current.enterKey.wasPressedThisFrame, cancellationToken: scope);
+                    queuePrompts.Enqueue(promptTextField.value);
+                    promptTextField.value = "";
+                    await UniTask.NextFrame();
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log("End BeginQueuePromptAsync");
+            }
         }
     }
 }
