@@ -11,7 +11,11 @@ namespace DayTradeSim
     {
         public UniTask PlayAsync(Container container, CancellationToken cancellationToken)
         {
-            Debug.Log("SSS");
+            var simulator = container.Resolve<StockSimulator.Core>();
+            foreach (var i in simulator.Companies)
+            {
+                Debug.Log($"{i.Name} : {i.StockPrice}");
+            }
             return UniTask.CompletedTask;
         }
     }

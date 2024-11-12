@@ -93,6 +93,7 @@ namespace DayTradeSim
             {
                 var container = new Container();
                 container.Register("Data", data);
+                container.Register(stockSimulator);
                 var sequencer = new Sequencer(container, command.Sequences);
                 await sequencer.PlayAsync(scope);
             }
