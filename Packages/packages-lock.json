@@ -7,6 +7,20 @@
       "dependencies": {},
       "hash": "f9fd769be7c634610f2a61aa914a1a55f34740e1"
     },
+    "com.hk.unitysequencersystem": {
+      "version": "https://github.com/gif-hara/UnitySequencerSystem.git?path=Assets/Plugins/UnitySequencerSystem",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "ad329a70a4bedf118baa0e17a761968beb1e4648"
+    },
+    "com.mackysoft.serializereference-extensions": {
+      "version": "https://github.com/mackysoft/Unity-SerializeReferenceExtensions.git?path=Assets/MackySoft/MackySoft.SerializeReferenceExtensions",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f938fc5d9a9ef46a1669289450d38e17cb39567c"
+    },
     "com.unity.2d.animation": {
       "version": "10.1.4",
       "depth": 1,
