@@ -30,7 +30,7 @@ namespace DayTradeSim
 
         private string prompt;
         
-        private Queue<string> queuePrompts = new();
+        private readonly Queue<string> queuePrompts = new();
         
         void Start()
         {
