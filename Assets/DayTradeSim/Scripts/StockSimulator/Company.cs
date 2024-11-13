@@ -4,12 +4,15 @@ namespace DayTradeSim.StockSimulator
 {
     public class Company
     {
+        public int Id { get; private set; }
+        
         public string Name { get; private set; }
         
         public float StockPrice { get; private set; }
         
-        public Company(string name, float stockPrice)
+        public Company(int id, string name, float stockPrice)
         {
+            Id = id;
             Name = name;
             StockPrice = stockPrice;
         }

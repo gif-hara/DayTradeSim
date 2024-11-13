@@ -6,11 +6,13 @@ namespace DayTradeSim.StockSimulator
     {
         public List<Company> Companies { get; } = new();
         
+        private int companyId = 1001;
+        
         public Core()
         {
-            Companies.Add(new Company("A", 100.0f));
-            Companies.Add(new Company("B", 200.0f));
-            Companies.Add(new Company("C", 300.0f));
+            AddCompany("A", 100.0f);
+            AddCompany("B", 200.0f);
+            AddCompany("C", 300.0f);
         }
 
         public void Update()
@@ -19,6 +21,11 @@ namespace DayTradeSim.StockSimulator
             {
                 i.Update();
             }
+        }
+        
+        public void AddCompany(string name, float stockPrice)
+        {
+            Companies.Add(new Company(companyId++, name, stockPrice));
         }
     }
 }
