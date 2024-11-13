@@ -114,6 +114,10 @@ namespace DayTradeSim
             catch (OperationCanceledException)
             {
             }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
     }
 }
