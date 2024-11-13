@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: soc.view
   m_EditorClassIdentifier: 
   sequences:
-  - rid: 895594281561227366
+  - rid: 895594281561227380
   references:
     version: 2
     RefIds:
-    - rid: 895594281561227366
-      type: {class: ViewStockSimulationSystem, ns: DayTradeSim, asm: Assembly-CSharp}
+    - rid: 895594281561227380
+      type: {class: StockSimulationSystemView, ns: DayTradeSim, asm: Assembly-CSharp}
       data: 

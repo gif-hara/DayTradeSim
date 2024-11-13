@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: soc.update
   m_EditorClassIdentifier: 
   sequences:
-  - rid: 895594281561227372
+  - rid: 895594281561227379
   references:
     version: 2
     RefIds:
-    - rid: 895594281561227372
-      type: {class: UpdateStockSimulationSystem, ns: DayTradeSim, asm: Assembly-CSharp}
+    - rid: 895594281561227379
+      type: {class: StockSimulationSystemUpdate, ns: DayTradeSim, asm: Assembly-CSharp}
       data: 
