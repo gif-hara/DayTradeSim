@@ -23,14 +23,14 @@ namespace DayTradeSim
         public async UniTask PlayAsync(Container container, CancellationToken cancellationToken)
         {
             var index = indexResolver.Resolve(container);
-            var data = container.Resolve<List<string>>("Data");
-            if(data.Count <= index)
+            var commandLine = container.Resolve<CommandLine>();
+            if(commandLine.Count <= index)
             {
                 await new Sequencer(container, defaultSequences.Sequences).PlayAsync(cancellationToken);
                 return;
             }
 
-            var target = data[index];
+            var target = commandLine.GetArgumentToString(index);
             foreach (var i in elements)
             {
                 if (i.TargetResolver.Resolve(container) == target)

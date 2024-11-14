@@ -11,6 +11,8 @@ namespace DayTradeSim
             this.data = data;
         }
         
+        public int Count => data.Count;
+        
         public string GetCommandName()
         {
             return data[0];
