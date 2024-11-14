@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace DayTradeSim.StockSimulator
 {
@@ -10,11 +10,14 @@ namespace DayTradeSim.StockSimulator
         
         public float StockPrice { get; private set; }
         
-        public Company(int id, string name, float stockPrice)
+        public List<Define.CompanyCategory> Categories { get; } = new();
+        
+        public Company(int id, string name, float stockPrice, List<Define.CompanyCategory> defaultCategories)
         {
             Id = id;
             Name = name;
             StockPrice = stockPrice;
+            Categories.AddRange(defaultCategories);
         }
 
         public void Update()

@@ -47,9 +47,18 @@ namespace DayTradeSim.StockSimulator
         
         public Core()
         {
-            AddCompany("A", 1000.0f);
-            AddCompany("B", 2000.0f);
-            AddCompany("C", 3000.0f);
+            AddCompany("A", 1000.0f, new List<Define.CompanyCategory>
+            {
+                Define.CompanyCategory.InformationTechnology,
+            });
+            AddCompany("B", 2000.0f, new List<Define.CompanyCategory>
+            {
+                Define.CompanyCategory.Finance,
+            });
+            AddCompany("C", 3000.0f, new List<Define.CompanyCategory>
+            {
+                Define.CompanyCategory.Retail,
+            });
             AddPrincipal(1000000.0f);
         }
 
@@ -112,9 +121,9 @@ namespace DayTradeSim.StockSimulator
             return SellResult.Success;
         }
         
-        public void AddCompany(string name, float stockPrice)
+        public void AddCompany(string name, float stockPrice, List<Define.CompanyCategory> defaultCategories)
         {
-            Companies.Add(new Company(companyId++, name, stockPrice));
+            Companies.Add(new Company(companyId++, name, stockPrice, defaultCategories));
         }
         
         public Company GetCompany(int companyId)
