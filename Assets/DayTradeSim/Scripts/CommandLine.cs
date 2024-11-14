@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace DayTradeSim
 {
@@ -6,9 +8,11 @@ namespace DayTradeSim
     {
         private readonly List<string> data;
         
-        public CommandLine(List<string> data)
+        public CommandLine(string prompt)
         {
-            this.data = data;
+            this.data = Regex.Matches(prompt, "\\\"(.*?)\\\"|\\S+")
+                .Select(x => x.Groups[0].Value.Replace("\"", ""))
+                .ToList();
         }
         
         public int Count => data.Count;

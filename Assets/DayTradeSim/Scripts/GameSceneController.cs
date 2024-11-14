@@ -80,20 +80,18 @@ namespace DayTradeSim
                 return;
             }
             BeginQueuePromptAsync(scope).Forget();
-            var data = Regex.Matches(prompt, "\\\"(.*?)\\\"|\\S+")
-                .Select(x => x.Groups[0].Value.Replace("\"", ""))
-                .ToList();
-            if (commandDataList.TryGetValue(data[0], out var command))
+            var commandLine = new CommandLine(prompt);
+            if (commandDataList.TryGetValue(commandLine.GetCommandName(), out var command))
             {
                 var container = new Container();
-                container.Register(new CommandLine(data));
+                container.Register(commandLine);
                 container.Register(stockSimulator);
                 var sequencer = new Sequencer(container, command.Sequences);
                 await sequencer.PlayAsync(scope);
             }
             else
             {
-                Debug.Log($"Command not found: {data[0]}");
+                Debug.Log($"Command not found: {commandLine.GetCommandName()}");
             }
             stateMachine.Change(PromptStateAsync);
         }
