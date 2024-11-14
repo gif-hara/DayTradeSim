@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 322347079b81442779dd9257baaadfe0, type: 3}
-  m_Name: Default
+  m_Name: NewsGenerator.Default
   m_EditorClassIdentifier: 
   elements:
   - title: "\u826F\u3044\u30CB\u30E5\u30FC\u30B9"
