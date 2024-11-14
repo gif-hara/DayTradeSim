@@ -25,6 +25,8 @@ namespace DayTradeSim.StockSimulator
             }
             return company.StockPrice * x.Value;
         });
+        
+        public float PortfolioRate => (Portfolio - Principal) / Principal * 100.0f;
 
         public Dictionary<int, int> BuyList { get; } = new();
 
@@ -33,6 +35,14 @@ namespace DayTradeSim.StockSimulator
             Success,
             NotEnoughMoney,
             NotFoundCompany,
+        }
+        
+        public enum SellResult
+        {
+            Success,
+            NotFoundCompany,
+            NotEnoughStock,
+            NotPossessionStock,
         }
         
         public Core()
@@ -75,6 +85,31 @@ namespace DayTradeSim.StockSimulator
                 BuyList[companyId] += quantity;
             }
             return BuyResult.Success;
+        }
+        
+        public SellResult Sell(int companyId, int quantity)
+        {
+            var company = Companies.Find(x => x.Id == companyId);
+            if (company == null)
+            {
+                return SellResult.NotFoundCompany;
+            }
+            if (!BuyList.ContainsKey(companyId))
+            {
+                return SellResult.NotPossessionStock;
+            }
+            if (BuyList[companyId] < quantity)
+            {
+                return SellResult.NotEnoughStock;
+            }
+            var price = company.StockPrice * quantity;
+            Money += price;
+            BuyList[companyId] -= quantity;
+            if (BuyList[companyId] == 0)
+            {
+                BuyList.Remove(companyId);
+            }
+            return SellResult.Success;
         }
         
         public void AddCompany(string name, float stockPrice)

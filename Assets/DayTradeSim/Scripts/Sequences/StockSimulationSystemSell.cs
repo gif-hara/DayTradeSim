@@ -7,7 +7,7 @@ using UnitySequencerSystem;
 namespace DayTradeSim
 {
     [Serializable]
-    public class StockSimulationSystemBuy : ISequence
+    public class StockSimulationSystemSell : ISequence
     {
         [SerializeField]
         private ScriptableSequences errorSequences;
@@ -23,8 +23,8 @@ namespace DayTradeSim
             }
             var companyId = commandLine.GetArgumentToInt(2);
             var quantity = commandLine.GetArgumentToInt(3);
-            var result = simulator.Buy(companyId, quantity);
-            Debug.Log($"Buy: {result}, {simulator.GetCompany(companyId).Name} {quantity}");
+            var result = simulator.Sell(companyId, quantity);
+            Debug.Log($"Sell: {result}, {simulator.GetCompany(companyId).Name} {quantity}");
         }
     }
 }

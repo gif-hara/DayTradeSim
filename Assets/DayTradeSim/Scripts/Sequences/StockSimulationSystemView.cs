@@ -14,8 +14,7 @@ namespace DayTradeSim
             var simulator = container.Resolve<StockSimulator.Core>();
             var portfolio = simulator.Portfolio;
             var principal = simulator.Principal;
-            var portfolioRate = (portfolio - principal) / principal * 100;
-            Debug.Log($"Money: {simulator.Money}, Principal: {simulator.Principal}, Portfolio: {simulator.Portfolio}, Rate: {portfolioRate}%");
+            Debug.Log($"Money: {simulator.Money}, Principal: {simulator.Principal}, Portfolio: {simulator.Portfolio}, Rate: {simulator.PortfolioRate}%");
             foreach (var i in simulator.Companies)
             {
                 Debug.Log($"{i.Id:0000} {i.Name}: {i.StockPrice}");

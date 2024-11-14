@@ -29,11 +29,26 @@ MonoBehaviour:
             rid: 895594281561227365
           sequences: {fileID: 11400000, guid: 906d4e5c8c8474206bf8b06b243f2999, type: 2}
         - targetResolver:
+            rid: 895594281561227416
+          sequences: {fileID: 11400000, guid: 906d4e5c8c8474206bf8b06b243f2999, type: 2}
+        - targetResolver:
             rid: 895594281561227373
+          sequences: {fileID: 11400000, guid: 752c3da25f7bd453ca5a8095e109c1f6, type: 2}
+        - targetResolver:
+            rid: 895594281561227417
           sequences: {fileID: 11400000, guid: 752c3da25f7bd453ca5a8095e109c1f6, type: 2}
         - targetResolver:
             rid: 895594281561227398
           sequences: {fileID: 11400000, guid: 95424f89e4461474f8cddcd99dee3c18, type: 2}
+        - targetResolver:
+            rid: 895594281561227418
+          sequences: {fileID: 11400000, guid: 95424f89e4461474f8cddcd99dee3c18, type: 2}
+        - targetResolver:
+            rid: 895594281561227413
+          sequences: {fileID: 11400000, guid: f02e02b020cac4e16a5b1166df61808f, type: 2}
+        - targetResolver:
+            rid: 895594281561227419
+          sequences: {fileID: 11400000, guid: f02e02b020cac4e16a5b1166df61808f, type: 2}
     - rid: 895594281561227361
       type: {class: IntResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
       data:
@@ -50,3 +65,23 @@ MonoBehaviour:
       type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
       data:
         value: buy
+    - rid: 895594281561227413
+      type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: sell
+    - rid: 895594281561227416
+      type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: v
+    - rid: 895594281561227417
+      type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: u
+    - rid: 895594281561227418
+      type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: b
+    - rid: 895594281561227419
+      type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: s
