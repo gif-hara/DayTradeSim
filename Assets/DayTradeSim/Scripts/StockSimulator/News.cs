@@ -1,6 +1,6 @@
-namespace DayTradeSim
+namespace DayTradeSim.StockSimulator
 {
-    public class News
+    public sealed class News
     {
         public int CompanyId { get; private set; }
         
