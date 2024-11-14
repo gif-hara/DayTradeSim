@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace DayTradeSim.StockSimulator
 {
@@ -27,7 +29,7 @@ namespace DayTradeSim.StockSimulator
         {
             Id = id;
             Name = name;
-            StockPrice = stockPrice;
+            StockPrice = (float)Math.Round(stockPrice, 2);
             Categories.AddRange(defaultCategories);
             StockPriceDownFluctuation = stockPriceDownFluctuation;
             StockPriceUpFluctuation = stockPriceUpFluctuation;
@@ -39,6 +41,7 @@ namespace DayTradeSim.StockSimulator
                 -StockPrice * StockPriceDownFluctuation,
                 StockPrice * StockPriceUpFluctuation
                 );
+            StockPrice = (float)Math.Round(StockPrice, 2);
         }
     }
 }

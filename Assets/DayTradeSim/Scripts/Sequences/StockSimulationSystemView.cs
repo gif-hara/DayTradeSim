@@ -17,7 +17,7 @@ namespace DayTradeSim
             Debug.Log($"Money: {simulator.Money}, Principal: {simulator.Principal}, Portfolio: {simulator.Portfolio}, Rate: {simulator.PortfolioRate}%");
             foreach (var i in simulator.Companies)
             {
-                Debug.Log($"{i.Id:0000} {i.Name}: {i.StockPrice}");
+                Debug.Log($"{i.Id:0000} {i.Name}: {i.StockPrice:0.00}");
             }
             foreach (var i in simulator.BuyList)
             {
