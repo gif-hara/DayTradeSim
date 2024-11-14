@@ -12,18 +12,33 @@ namespace DayTradeSim.StockSimulator
         
         public List<Define.CompanyCategory> Categories { get; } = new();
         
-        public Company(int id, string name, float stockPrice, List<Define.CompanyCategory> defaultCategories)
+        public float StockPriceDownFluctuation { get; private set; }
+        
+        public float StockPriceUpFluctuation { get; private set; }
+        
+        public Company(
+            int id,
+            string name,
+            float stockPrice,
+            List<Define.CompanyCategory> defaultCategories,
+            float stockPriceDownFluctuation,
+            float stockPriceUpFluctuation
+            )
         {
             Id = id;
             Name = name;
             StockPrice = stockPrice;
             Categories.AddRange(defaultCategories);
+            StockPriceDownFluctuation = stockPriceDownFluctuation;
+            StockPriceUpFluctuation = stockPriceUpFluctuation;
         }
 
         public void Update()
         {
-            var rate = StockPrice / 100.0f;
-            StockPrice += UnityEngine.Random.Range(-rate, rate);
+            StockPrice += UnityEngine.Random.Range(
+                -StockPrice * StockPriceDownFluctuation,
+                StockPrice * StockPriceUpFluctuation
+                );
         }
     }
 }

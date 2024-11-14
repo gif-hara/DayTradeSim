@@ -7,8 +7,6 @@ namespace DayTradeSim.StockSimulator
     {
         public List<Company> Companies { get; } = new();
         
-        private int companyId = 1001;
-
         public float Money { get; private set; }
         
         /// <summary>
@@ -29,6 +27,8 @@ namespace DayTradeSim.StockSimulator
         public float PortfolioRate => (Portfolio - Principal) / Principal * 100.0f;
 
         public Dictionary<int, int> BuyList { get; } = new();
+        
+        private readonly ICompanyGenerator companyGenerator;
 
         public enum BuyResult
         {
@@ -45,20 +45,13 @@ namespace DayTradeSim.StockSimulator
             NotPossessionStock,
         }
         
-        public Core()
+        public Core(ICompanyGenerator companyGenerator, int initialCompanyNumber)
         {
-            AddCompany("A", 1000.0f, new List<Define.CompanyCategory>
+            this.companyGenerator = companyGenerator;
+            for (var i = 0; i < initialCompanyNumber; i++)
             {
-                Define.CompanyCategory.InformationTechnology,
-            });
-            AddCompany("B", 2000.0f, new List<Define.CompanyCategory>
-            {
-                Define.CompanyCategory.Finance,
-            });
-            AddCompany("C", 3000.0f, new List<Define.CompanyCategory>
-            {
-                Define.CompanyCategory.Retail,
-            });
+                Companies.Add(companyGenerator.Generate());
+            }
             AddPrincipal(1000000.0f);
         }
 
@@ -120,10 +113,10 @@ namespace DayTradeSim.StockSimulator
             }
             return SellResult.Success;
         }
-        
-        public void AddCompany(string name, float stockPrice, List<Define.CompanyCategory> defaultCategories)
+
+        public void GenerateCompany()
         {
-            Companies.Add(new Company(companyId++, name, stockPrice, defaultCategories));
+            
         }
         
         public Company GetCompany(int companyId)

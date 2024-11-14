@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DayTradeSim.StockSimulator;
 using HK;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,12 @@ namespace DayTradeSim
     {
         [SerializeField]
         private UIDocument uiDocumentPrefab;
+
+        [SerializeField]
+        private CompanyGenerator companyGenerator;
+
+        [SerializeField]
+        private int initialCompanyNumber;
         
         [SerializeField]
         private CommandDataList.DictionaryList commandDataList;
@@ -32,10 +39,11 @@ namespace DayTradeSim
         
         private readonly Queue<string> queuePrompts = new();
         
-        StockSimulator.Core stockSimulator = new();
+        StockSimulator.Core stockSimulator;
         
         void Start()
         {
+            stockSimulator = new StockSimulator.Core(companyGenerator, initialCompanyNumber);
             BeginGameAsync(destroyCancellationToken).Forget();
         }
         
