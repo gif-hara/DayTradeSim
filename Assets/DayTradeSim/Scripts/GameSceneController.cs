@@ -86,7 +86,7 @@ namespace DayTradeSim
             if (commandDataList.TryGetValue(data[0], out var command))
             {
                 var container = new Container();
-                container.Register("Data", data);
+                container.Register(new CommandLine(data));
                 container.Register(stockSimulator);
                 var sequencer = new Sequencer(container, command.Sequences);
                 await sequencer.PlayAsync(scope);
