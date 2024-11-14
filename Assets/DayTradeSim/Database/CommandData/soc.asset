@@ -31,6 +31,9 @@ MonoBehaviour:
         - targetResolver:
             rid: 895594281561227373
           sequences: {fileID: 11400000, guid: 752c3da25f7bd453ca5a8095e109c1f6, type: 2}
+        - targetResolver:
+            rid: 895594281561227398
+          sequences: {fileID: 11400000, guid: 95424f89e4461474f8cddcd99dee3c18, type: 2}
     - rid: 895594281561227361
       type: {class: IntResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
       data:
@@ -43,3 +46,7 @@ MonoBehaviour:
       type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
       data:
         value: update
+    - rid: 895594281561227398
+      type: {class: StringResolver/Constant, ns: UnitySequencerSystem.Resolvers, asm: UnitySequencerSystem}
+      data:
+        value: buy
