@@ -19,7 +19,7 @@ namespace DayTradeSim
             }
             foreach (var i in simulator.BuyList)
             {
-                var company = simulator.GetCompany(i.Value);
+                var company = simulator.GetCompany(i.Key);
                 Debug.Log($"Buy: {company.Name} {i.Value}");
             }
             return UniTask.CompletedTask;
