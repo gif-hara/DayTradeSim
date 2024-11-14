@@ -12,8 +12,6 @@ namespace DayTradeSim
         public UniTask PlayAsync(Container container, CancellationToken cancellationToken)
         {
             var simulator = container.Resolve<StockSimulator.Core>();
-            var portfolio = simulator.Portfolio;
-            var principal = simulator.Principal;
             Debug.Log($"Money: {simulator.Money}, Principal: {simulator.Principal}, Portfolio: {simulator.Portfolio}, Rate: {simulator.PortfolioRate}%");
             foreach (var i in simulator.Companies)
             {
