@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DayTradeSim.StockSimulator
 {
@@ -9,6 +10,21 @@ namespace DayTradeSim.StockSimulator
         private int companyId = 1001;
 
         public float Money { get; private set; }
+        
+        /// <summary>
+        /// 元本
+        /// </summary>
+        public float Principal { get; private set; }
+        
+        public float Portfolio => Money + BuyList.Sum(x =>
+        {
+            var company = GetCompany(x.Key);
+            if(company == null)
+            {
+                return 0.0f;
+            }
+            return company.StockPrice * x.Value;
+        });
 
         public Dictionary<int, int> BuyList { get; } = new();
 
@@ -21,10 +37,10 @@ namespace DayTradeSim.StockSimulator
         
         public Core()
         {
-            AddCompany("A", 100.0f);
-            AddCompany("B", 200.0f);
-            AddCompany("C", 300.0f);
-            Money = 1000000.0f;
+            AddCompany("A", 1000.0f);
+            AddCompany("B", 2000.0f);
+            AddCompany("C", 3000.0f);
+            AddPrincipal(1000000.0f);
         }
 
         public void Update()
@@ -33,6 +49,12 @@ namespace DayTradeSim.StockSimulator
             {
                 i.Update();
             }
+        }
+        
+        public void AddPrincipal(float value)
+        {
+            Money += value;
+            Principal += value;
         }
         
         public BuyResult Buy(int companyId, int quantity)

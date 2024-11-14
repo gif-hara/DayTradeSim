@@ -19,7 +19,8 @@ namespace DayTradeSim.StockSimulator
 
         public void Update()
         {
-            StockPrice += UnityEngine.Random.Range(-1.0f, 1.0f);
+            var rate = StockPrice / 100.0f;
+            StockPrice += UnityEngine.Random.Range(-rate, rate);
         }
     }
 }

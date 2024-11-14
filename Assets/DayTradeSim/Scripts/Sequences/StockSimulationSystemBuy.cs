@@ -24,6 +24,7 @@ namespace DayTradeSim
             var companyId = commandLine.GetArgumentToInt(2);
             var quantity = commandLine.GetArgumentToInt(3);
             simulator.Buy(companyId, quantity);
+            Debug.Log($"Buy: {simulator.GetCompany(companyId).Name} {quantity}");
         }
     }
 }
