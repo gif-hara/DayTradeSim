@@ -113,11 +113,6 @@ namespace DayTradeSim.StockSimulator
             }
             return SellResult.Success;
         }
-
-        public void GenerateCompany()
-        {
-            
-        }
         
         public Company GetCompany(int companyId)
         {
