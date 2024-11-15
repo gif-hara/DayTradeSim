@@ -24,6 +24,34 @@ MonoBehaviour:
         messagePackElements:
         - category: 0
           messagePack: {fileID: 11400000, guid: 97001a9b253d649099ca1fbbb1208bec, type: 2}
+        - category: 1
+          messagePack: {fileID: 11400000, guid: c46cc8b22aabd455a8fde743bcb83df0, type: 2}
+        - category: 2
+          messagePack: {fileID: 11400000, guid: a33e8a1eed4554775bbab2d2bf4a87cc, type: 2}
+        - category: 3
+          messagePack: {fileID: 11400000, guid: 8a7926e91455241819ed48c1660f5a49, type: 2}
+        - category: 4
+          messagePack: {fileID: 11400000, guid: 2ee02019e91e54811970db45b390fc10, type: 2}
+        - category: 5
+          messagePack: {fileID: 11400000, guid: bc3b5fc8c9dbd4769ac58d2f31e5691c, type: 2}
+        - category: 6
+          messagePack: {fileID: 11400000, guid: c3821b2b543df4b759c2f23f3dfb0ef1, type: 2}
+        - category: 7
+          messagePack: {fileID: 11400000, guid: 002495554377c440584b5ce0193a6045, type: 2}
+        - category: 8
+          messagePack: {fileID: 11400000, guid: ca48f194b659442b59b2e2002a3b8317, type: 2}
+        - category: 9
+          messagePack: {fileID: 11400000, guid: fa1c86116aea541e8bdf736edf333ac5, type: 2}
+        - category: 10
+          messagePack: {fileID: 11400000, guid: 864841a61cc04415380ff36b667713f2, type: 2}
+        - category: 11
+          messagePack: {fileID: 11400000, guid: 8c3f4b8a86c144ddaaf3b59eba22329d, type: 2}
+        - category: 12
+          messagePack: {fileID: 11400000, guid: 60c63a4a3c7084f3484dbefd7e2cf934, type: 2}
+        - category: 13
+          messagePack: {fileID: 11400000, guid: 265998e33dc2445cfa5c5ba4b2c66b38, type: 2}
+        - category: 14
+          messagePack: {fileID: 11400000, guid: 12e201b920d854d4aa7d4eb19bfceb05, type: 2}
         companyCount: 1
         impacts:
         - rid: 895594281561227479
