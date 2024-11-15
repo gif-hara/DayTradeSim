@@ -7,9 +7,9 @@ namespace DayTradeSim.StockSimulator
     {
         private readonly List<int> companyIds;
         
-        private readonly List<INewsCompaniesImpact> impacts;
+        private readonly List<INewsImpactCompanies> impacts;
 
-        public NewsCompanies(string title, string content, List<int> companyIds, List<INewsCompaniesImpact> impacts)
+        public NewsCompanies(string title, string content, List<int> companyIds, List<INewsImpactCompanies> impacts)
             : base(title, content)
         {
             this.companyIds = companyIds;

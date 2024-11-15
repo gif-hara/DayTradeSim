@@ -24,7 +24,7 @@ namespace DayTradeSim.StockSimulator
                 private int companyCount;
                 
                 [SerializeReference, SubclassSelector]
-                private List<INewsCompaniesImpact> impacts;
+                private List<INewsImpactCompanies> impacts;
                 
                 public INews Generate(Core core)
                 {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace DayTradeSim.StockSimulator
 {
-    public interface INewsCompaniesImpact
+    public interface INewsImpactCompanies
     {
         public void Apply(Core core, List<Company> companies);
     }
