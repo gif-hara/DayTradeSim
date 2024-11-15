@@ -21,7 +21,7 @@ namespace DayTradeSim.StockSimulator
             var companies = companyIds.Select(core.GetCompany).ToList();
             foreach (var impact in impacts)
             {
-                impact.Apply(companies);
+                impact.Apply(core, companies);
             }
         }
     }

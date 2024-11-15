@@ -11,7 +11,7 @@ namespace DayTradeSim.StockSimulator
         [Serializable]
         public class Random
         {
-            [Serializable]
+            [Serializable][AddTypeMenu("Random.NewsCompanies")]
             public class NewsCompanies : INewsGenerator
             {
                 [SerializeField]
