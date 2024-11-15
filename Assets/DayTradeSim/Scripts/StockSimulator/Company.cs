@@ -43,5 +43,17 @@ namespace DayTradeSim.StockSimulator
                 );
             StockPrice = (float)Math.Round(StockPrice, 2);
         }
+        
+        public void AddStockPriceDownFluctuation(float value)
+        {
+            StockPriceDownFluctuation += value;
+            StockPriceDownFluctuation = StockPriceDownFluctuation < 0 ? 0 : StockPriceDownFluctuation;
+        }
+        
+        public void AddStockPriceUpFluctuation(float value)
+        {
+            StockPriceUpFluctuation += value;
+            StockPriceUpFluctuation = StockPriceUpFluctuation < 0 ? 0 : StockPriceUpFluctuation;
+        }
     }
 }

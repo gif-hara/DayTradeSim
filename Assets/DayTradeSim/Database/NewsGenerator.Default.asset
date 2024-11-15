@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: NewsGenerator.Default
   m_EditorClassIdentifier: 
   generators:
-  - rid: 895594281561227464
+  - rid: 895594281561227470
   references:
     version: 2
     RefIds:
-    - rid: 895594281561227464
+    - rid: 895594281561227470
       type: {class: NewsGenerator/Random/NewsCompanies, ns: DayTradeSim.StockSimulator, asm: Assembly-CSharp}
       data:
         titleFormat: "{Company[0]}\u306E\u826F\u3044\u30CB\u30E5\u30FC\u30B9"
         contentFormat: "{Company[0]}\u306F\u826F\u3044\u3053\u3068\u3092\u3057\u305F\u3088\u3002"
         companyCount: 1
-        impacts: []
+        impacts:
+        - rid: 895594281561227479
+    - rid: 895594281561227479
+      type: {class: NewsImpactAddStockPriceUpFluctuation, ns: DayTradeSim.StockSimulator, asm: Assembly-CSharp}
+      data:
+        min: 0.01
+        max: 0.05
