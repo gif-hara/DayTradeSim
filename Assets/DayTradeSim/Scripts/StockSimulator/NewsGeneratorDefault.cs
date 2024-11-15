@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,12 +7,12 @@ namespace DayTradeSim.StockSimulator
     public class NewsGeneratorDefault : NewsGenerator
     {
         [SerializeReference, SubclassSelector]
-        private List<INews> elements;
+        private List<INewsGenerator> generators;
         
         public override INews Generate(Core core)
         {
-            var element = elements[UnityEngine.Random.Range(0, elements.Count)];
-            throw new NotImplementedException();
+            var generator = generators[UnityEngine.Random.Range(0, generators.Count)];
+            return generator.Generate(core);
         }
     }
 }
