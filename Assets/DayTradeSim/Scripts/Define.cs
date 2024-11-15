@@ -80,11 +80,6 @@ namespace DayTradeSim
             /// 鉱業
             /// </summary>
             Mining,
-
-            /// <summary>
-            /// ゲーム開発
-            /// </summary>
-            GameDevelopment,
         }
     }
 }

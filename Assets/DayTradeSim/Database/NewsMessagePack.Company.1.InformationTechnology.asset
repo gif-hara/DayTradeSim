@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 062d3b46818de46e6bde5bc68ca027ce, type: 3}
+  m_Name: NewsMessagePack.Company.1.InformationTechnology
+  m_EditorClassIdentifier: 
+  elements:
+  - titleFormat: "{CompanyName[0]}\u3001\u6B21\u4E16\u4EE3\u30D0\u30C3\u30C6\u30EA\u30FC\u6280\u8853\u306E\u958B\u767A\u306B\u6210\u529F"
+    contentFormat: "{CompanyName[0]}[{CompanyId[0]}]\u306F\u3001\u65B0\u578B\u306E\u9AD8\u52B9\u7387\u30D0\u30C3\u30C6\u30EA\u30FC\u6280\u8853\u306E\u958B\u767A\u306B\u6210\u529F\u3057\u3001\u96FB\u529B\u4F9B\u7D66\u306E\u5B89\u5B9A\u6027\u3068\u6301\u7D9A\u53EF\u80FD\u6027\u3092\u5927\u5E45\u306B\u5411\u4E0A\u3055\u305B\u307E\u3057\u305F\u3002\n\u3053\u306E\u6280\u8853\u306F\u3001\u6765\u5E74\u306E\u5546\u7528\u5316\u3092\u76EE\u6307\u3057\u3066\u304A\u308A\u3001\u74B0\u5883\u8CA0\u8377\u306E\u4F4E\u6E1B\u306B\u3082\u8CA2\u732E\u3059\u308B\u898B\u8FBC\u307F\u3067\u3059\u3002"
