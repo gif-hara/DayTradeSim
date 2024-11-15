@@ -41,6 +41,14 @@ namespace DayTradeSim
                     var company = simulator.GetCompany(i.Key);
                     sb.AppendLine($"    {company.Name} {i.Value}");
                 }
+
+                sb.AppendLine("News");
+                foreach (var i in simulator.News)
+                {
+                    sb.AppendLine($"    {i.Title}");
+                    sb.AppendLine($"    {i.Content}");
+                    sb.AppendLine("-----");
+                }
             }
             Debug.Log(sb.ToString());
             return UniTask.CompletedTask;

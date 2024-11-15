@@ -22,6 +22,9 @@ namespace DayTradeSim
         private CompanyGenerator companyGenerator;
 
         [SerializeField]
+        private NewsGenerator newsGenerator;
+
+        [SerializeField]
         private int initialCompanyNumber;
         
         [SerializeField]
@@ -43,7 +46,7 @@ namespace DayTradeSim
         
         void Start()
         {
-            stockSimulator = new StockSimulator.Core(companyGenerator, initialCompanyNumber);
+            stockSimulator = new StockSimulator.Core(companyGenerator, newsGenerator, initialCompanyNumber);
             BeginGameAsync(destroyCancellationToken).Forget();
         }
         

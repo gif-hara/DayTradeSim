@@ -371,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocumentPrefab: {fileID: 6686881155206890366, guid: 0c79b3143dfd44bbfbd51f36e7a04e5f, type: 3}
   companyGenerator: {fileID: 11400000, guid: 790b2f2d6aa0742db937fe1378cdbd7e, type: 2}
+  newsGenerator: {fileID: 11400000, guid: 5c3d2ac7b4737488e9bc98eaf8a0396c, type: 2}
   initialCompanyNumber: 10
   commandDataList:
     list:

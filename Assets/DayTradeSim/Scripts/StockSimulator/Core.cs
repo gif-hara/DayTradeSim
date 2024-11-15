@@ -29,6 +29,10 @@ namespace DayTradeSim.StockSimulator
         public Dictionary<int, int> BuyList { get; } = new();
         
         private readonly ICompanyGenerator companyGenerator;
+        
+        private readonly INewsGenerator newsGenerator;
+        
+        public List<INews> News { get; } = new();
 
         public enum BuyResult
         {
@@ -45,9 +49,10 @@ namespace DayTradeSim.StockSimulator
             NotPossessionStock,
         }
         
-        public Core(ICompanyGenerator companyGenerator, int initialCompanyNumber)
+        public Core(ICompanyGenerator companyGenerator, INewsGenerator newsGenerator, int initialCompanyNumber)
         {
             this.companyGenerator = companyGenerator;
+            this.newsGenerator = newsGenerator;
             for (var i = 0; i < initialCompanyNumber; i++)
             {
                 Companies.Add(companyGenerator.Generate());
@@ -61,6 +66,9 @@ namespace DayTradeSim.StockSimulator
             {
                 i.Update();
             }
+            var news = newsGenerator.Generate(this);
+            News.Add(news);
+            news.Apply(this);
         }
         
         public void AddPrincipal(float value)
