@@ -38,8 +38,8 @@ namespace DayTradeSim.StockSimulator
         public void Update()
         {
             StockPrice += UnityEngine.Random.Range(
-                -StockPrice * StockPriceDownFluctuation,
-                StockPrice * StockPriceUpFluctuation
+                -StockPriceDownFluctuation,
+                StockPriceUpFluctuation
                 );
             StockPrice = (float)Math.Round(StockPrice, 2);
         }

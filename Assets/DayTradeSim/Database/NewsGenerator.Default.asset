@@ -58,5 +58,5 @@ MonoBehaviour:
     - rid: 895594281561227479
       type: {class: NewsImpactAddStockPriceUpFluctuation, ns: DayTradeSim.StockSimulator, asm: Assembly-CSharp}
       data:
-        min: 0.01
-        max: 0.05
+        min: 1
+        max: 5
